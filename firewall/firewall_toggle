@@ -1,0 +1,10 @@
+#!/bin/bash
+status=$(sudo defaults read /Library/Preferences/com.apple.alf globalstate)
+
+if [ $status == 1 ]
+then
+	sudo defaults write /Library/Preferences/com.apple.alf globalstate -int 0
+elif [ "$status" == "0" ]
+then
+	sudo defaults write /Library/Preferences/com.apple.alf globalstate -int 1
+fi

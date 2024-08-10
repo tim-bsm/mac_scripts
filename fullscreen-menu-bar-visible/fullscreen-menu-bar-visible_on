@@ -1,0 +1,7 @@
+#!/bin/bash
+status=$(defaults read 'Apple Global Domain' AppleMenuBarVisibleInFullscreen)
+
+if [ "$status" -eq 1 ]
+then
+	defaults write 'Apple Global Domain' AppleMenuBarVisibleInFullscreen -int 0
+fi

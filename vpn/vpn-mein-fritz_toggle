@@ -1,0 +1,12 @@
+#!/bin/bash
+
+VPN_NAME="VPN Mein Fritz"
+status=$(networksetup -showpppoestatus "$VPN_NAME")
+
+if [ $status == "disconnected" ]
+then
+	networksetup -connectpppoeservice "$VPN_NAME"
+elif [ $status == "connected" ]
+then
+	networksetup -disconnectpppoeservice "$VPN_NAME"
+fi

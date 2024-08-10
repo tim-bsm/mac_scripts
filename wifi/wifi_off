@@ -1,0 +1,7 @@
+#!/bin/bash
+status=$(networksetup -getairportpower en0)
+
+if [ "$status" == "Wi-Fi Power (en0): On" ]
+then
+	networksetup -setairportpower en0 off
+fi
